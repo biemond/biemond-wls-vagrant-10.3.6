@@ -460,7 +460,7 @@ class wls_application_Cluster {
                          "wlsServerName    = 'wlsServer2'",
                          "machineName      = 'node2'",
                          "listenPort       = 9201",
-                         "listenAddress    = '10.10.10.100'",
+                         "listenAddress    = '10.10.10.200'",
                          "nodeMgrLogDir    = '/data/logs'",
                         ],
       require        => Wls::Wlstexec['createManagerServerWlsServer1'],
