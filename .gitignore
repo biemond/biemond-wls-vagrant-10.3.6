@@ -1,0 +1,7 @@
+
+*.gz
+
+*.zip
+
+*.jar
+.vagrant/*
