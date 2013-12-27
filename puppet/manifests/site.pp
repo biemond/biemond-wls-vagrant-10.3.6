@@ -459,7 +459,7 @@ class wls_application_Cluster {
        params        => ["javaArguments    = '-XX:PermSize=256m -XX:MaxPermSize=512m -Xms1024m -Xmx1024m -Dweblogic.Stdout=/data/logs/wlsServer2.out -Dweblogic.Stderr=/data/logs/wlsServer2_err.out'",
                          "wlsServerName    = 'wlsServer2'",
                          "machineName      = 'node2'",
-                         "listenPort       = 9202",
+                         "listenPort       = 9201",
                          "listenAddress    = '10.10.10.100'",
                          "nodeMgrLogDir    = '/data/logs'",
                         ],

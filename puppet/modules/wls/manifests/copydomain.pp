@@ -112,7 +112,7 @@ define wls::copydomain ($version         = '1111',
           command => "mkdir -p ${logDir}",
           unless  => "test -d ${logDir}",
           user    => 'root',
-          path    => $exec_path,
+          path    => $execPath,
         }
       }
       if !defined(File[$logDir]) {
