@@ -11,6 +11,10 @@ creates a patched 10.3.6 WebLogic cluster ( admin,node1 , node2 )
 site.pp is located here:  
 https://github.com/biemond/biemond-wls-vagrant-10.3.6/blob/master/puppet/manifests/site.pp  
 
+Add the all the Oracle binaris to /software, edit Vagrantfile and update
+- admin.vm.synced_folder "/Users/edwin/software", "/software"
+- node1.vm.synced_folder "/Users/edwin/software", "/software"
+- node2.vm.synced_folder "/Users/edwin/software", "/software"
 
 used the following software
 - jdk-7u45-linux-x64.tar.gz

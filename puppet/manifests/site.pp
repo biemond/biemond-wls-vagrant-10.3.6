@@ -226,6 +226,7 @@ class wls1036{
     group                  => $group,
     downloadDir            => $downloadDir, 
     puppetDownloadMntPoint => $puppetDownloadMntPoint, 
+    remoteFile             => hiera('wls_remote_file'),
   }
 
   # install

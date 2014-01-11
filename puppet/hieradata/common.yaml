@@ -31,7 +31,7 @@ wls_version:              &wls_version              "1111"
 wls_os_user:              &wls_os_user              "wls"
 wls_os_group:             &wls_os_group             "dba"
 wls_download_dir:         &wls_download_dir         "/data/install"
-wls_source:               &wls_source               "/vagrant"
+wls_source:               &wls_source               "/software"
 wls_remote_file:                                    false
 wls_jdk_home_dir:         &wls_jdk_home_dir         "/usr/java/jdk1.7.0_45"
 wls_log_dir:              &wls_log_dir              "/data/logs"
