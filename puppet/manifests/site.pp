@@ -293,6 +293,7 @@ class wls1036_domain{
     adminListenAdr  => $address,
     adminListenPort => $adminListenPort,
     nodemanagerPort => $nodemanagerPort,
+    java_arguments  => { "ADM" => "-XX:PermSize=256m -XX:MaxPermSize=512m -Xms1024m -Xmx1024m" },
     wlsUser         => hiera('wls_weblogic_user'),
     password        => hiera('domain_wls_password'),
     user            => $user,
