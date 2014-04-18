@@ -1,5 +1,6 @@
 Oracle WebLogic / Fusion Middleware puppet module
 =================================================
+[![Build Status](https://travis-ci.org/biemond/biemond-wls.png)](https://travis-ci.org/biemond/biemond-wls)
 
 created by Edwin Biemond  email biemond at gmail dot com   
 [biemond.blogspot.com](http://biemond.blogspot.com)    
@@ -8,7 +9,16 @@ created by Edwin Biemond  email biemond at gmail dot com
 
 Should work for Solaris x86 64, Windows, RedHat, CentOS, Ubuntu, Debian, Suse SLES or OracleLinux 
 
-New orawls module designed for puppet 3 and totally refactored and optimized for Hiera, see the biemond-orawls module  
+New orawls module  
+-----------------
+differences
+- designed for puppet 3
+- types & providers/ wls resource instead of wlstexec scripts like wls_machine, wls_server, wls_cluster, wls_jmsserver, wls_safagent
+- totally refactored ( less manifests, parameters have hiera defaults and better parameter names )
+- optimized for Hiera ( classes instead of defines )
+
+For more info see the biemond-orawls module
+
 
 Reference implementation, the vagrant test case for full working WebLogic 10.3.6 cluster example  
 https://github.com/biemond/biemond-wls-vagrant-10.3.6  
@@ -29,6 +39,7 @@ https://github.com/biemond/biemond-wls-vagrant-wc
 Version updates
 ---------------
 
+- 1.3.9 added a raise to all wlst scripts, plus queue/topic fix.
 - 1.3.8 Option to override the server arguments in the domain templates, small bugfixes.
 - 1.3.7 javaParameters param for installwls ( support for Docker -Dspace.detection=false ,thanks Jyrk )
 - 1.3.6 remoteFile param for BSU,Opatch,SOA Suite, WebCenter, WebCenter Content and OIM 
@@ -85,6 +96,8 @@ Other options
 Domain creation options (Dev or Prod mode)
 ------------------------------------------
 all templates creates a WebLogic domain, logs the domain creation output  
+you can override the default server arguments by adding the following parameter to wlsdomain  
+java_arguments = { "ADM" => "...", "OSB" => "...", "SOA" => "...", "BAM" => "...","OAM" => "....","OIM" => "...."}  
 
 - domain 'standard'    -> a default WebLogic    
 - domain 'adf'         -> JRF + EM + Coherence (12.1.2) + OWSM (12.1.2) + JAX-WS Advanced + Soap over JMS (12.1.2)   
@@ -176,17 +189,9 @@ Standard WebLogic 10.3.6 server with a 11.1.2.1 OIM,OAM, SOA Suite domain
 -------------------------------------------------------------------------
 see example_conf_7_oim_oam_11.1.2.1.txt located in your wls module home at the puppet master or look at the my github repos https://github.com/biemond/puppet/tree/master/modules/wls
 
-
-![Oracle WebLogic Console](https://raw.github.com/biemond/puppet/master/modules/wls/wlsconsole.png)
-
-![Oracle Enterprise Manager Console](https://raw.github.com/biemond/puppet/master/modules/wls/em.png)
-
 WLS WebLogic Facter
 -------------------
-
 Contains WebLogic Facter which displays the following: Middleware homes, Oracle Software, BSU & OPatch patches, Domain configuration ( everything of a domain like deployments, datasource, JMS, SAF)
-
-![Oracle Puppet Facts](https://raw.github.com/biemond/puppet/master/modules/wls/facts.png)
 
 ### My WLS module Files folder, you need to download it yourself and agree to the Oracle (Developer) License
 WebLogic 11g + patches: wls1036_generic.jar, p13573621_1036_Generic.zip, p14736139_1036_Generic.zip  
@@ -195,7 +200,6 @@ IDE: jdevstudio11117install.jar, soa-jdev-extension_11117.zip, oepe-indigo-all-i
 OSB + SOA software: ofm_osb_generic_11.1.1.7.0_disk1_1of1.zip, ofm_soa_generic_11.1.1.7.0_disk1_1of2.zip, ofm_soa_generic_11.1.1.7.0_disk1_2of2.zip    
 Webcenter software: ofm_wc_generic_11.1.1.7.0_disk1_1of1.zip, ofm_wcc_generic_11.1.1.7.0_disk1_1of2.zip, ofm_wcc_generic_11.1.1.7.0_disk1_2of2.zip  
     
-![Oracle Puppet Facts](https://raw.github.com/biemond/puppet/master/modules/wls/modulefiles.png)
     
 WebLogic settings for ulimits and kernel parameters
 ---------------------------------------------------
