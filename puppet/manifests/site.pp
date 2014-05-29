@@ -236,6 +236,7 @@ class wls1036{
   
   # weblogic patch
   wls::bsupatch{'p17071663':
+     ensure       => 'present',
      patchId      => 'BYJ1',    
      patchFile    => 'p17071663_1036_Generic.zip',  
      require      => Wls::Installwls['11gPS5'],
